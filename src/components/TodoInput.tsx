@@ -10,7 +10,7 @@ export function TodoInput({ addTask }: TodoInputProps) {
   const [task, setTask] = useState('');
 
   function handleAddNewTask() {
-    if (task) {
+    if (task && task.trim() !== '') {
       addTask(task);
       setTask('');
     }
@@ -24,6 +24,7 @@ export function TodoInput({ addTask }: TodoInputProps) {
         placeholderTextColor="#B2B2B2"
         returnKeyType="send"
         selectionColor="#666666"
+        value={task}
         onChangeText={(text) => setTask(text)}
         onSubmitEditing={handleAddNewTask}
       />
